@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Weather"
+             Title="Weather">
+    <ScrollView>
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" MinimumWidthRequest="500" VerticalOptions="FillAndExpand" BackgroundColor="Black">
+
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="10" BackgroundColor="Navy">
+                <Label x:Name="Details" Text="Placeholder" FontSize="12" IsVisible="False" />
+
+                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+
+                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" Padding="0, 30, 0, 30">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0, 0, 0, 40">
+                            <Border Stroke="Aqua" StrokeThickness="2" StrokeShape="RoundRectangle 10, 0, 10, 0" Background="#FFFFFF" HorizontalOptions="Center">
+                                <Entry x:Name="entry" Text="Location" TextColor="Black" Margin="0" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" WidthRequest="150" />
+                            </Border>
+                            <Border Stroke="Aqua" StrokeThickness="2" StrokeShape="RoundRectangle 0, 10, 0, 10" Background="Aqua" HorizontalOptions="Center" Margin="-2, 0, 0, 0">
+                                <Button BackgroundColor="Aqua" Margin="0" HorizontalOptions="FillAndExpand" Text="Go" TextColor="Black" FontAttributes="Bold" BorderWidth="1" Clicked="CityButton_Clicked" WidthRequest="100" />
+                            </Border>
+                        </StackLayout>
+
+                        <Label x:Name="dateTxt" Text="Date" TextColor="White" FontSize="13" HorizontalOptions="Center"/>
+                        <Label x:Name="cityTxt" Text="Location" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+                        <Label x:Name="temperatureTxt" Text="00" TextColor="White" FontSize="120" HorizontalOptions="Center" LineHeight="1"/>
+                        <Label Text="Fahrenheit" TextColor="White" FontSize="20" HorizontalOptions="Center" TextTransform="Uppercase" LineHeight="3"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Padding="0, 0, 0, 10" MinimumHeightRequest="100">
+
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                            <Label x:Name="humidityTxt" Text="0%" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" LineHeight="2"/>
+                            <Label Text="Humidity" TextColor="White" FontSize="11" HorizontalOptions="Center" TextTransform="Uppercase"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                            <Label x:Name="windTxt" Text="0 m/s" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" LineHeight="2"/>
+                            <Label Text="Wind" TextColor="White" FontSize="11" HorizontalOptions="Center" TextTransform="Uppercase"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                            <Label x:Name="pressureTxt" Text="0 hpa" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" LineHeight="2"/>
+                            <Label Text="Pressure" TextColor="White" FontSize="11" HorizontalOptions="Center" TextTransform="Uppercase"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                            <Label x:Name="cloudinessTxt" Text="0%" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center" LineHeight="2"/>
+                            <Label Text="Cloudiness" TextColor="White" FontSize="11" HorizontalOptions="Center" TextTransform="Uppercase"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" BackgroundColor="DarkBlue" Padding="0" MinimumHeightRequest="100">
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="DarkRed" Padding="10">
+                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="Day1" Text="Day +1" TextColor="White" FontSize="11" HorizontalOptions="Center" TextTransform="Uppercase"/>
+                        <Label x:Name="Day1temp" Text="0%" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="DarkOrange" Padding="10">
+                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="Day2" Text="Day +2" TextColor="White" FontSize="11" HorizontalOptions="Center" TextTransform="Uppercase"/>
+                        <Label x:Name="Day2temp" Text="0 m/s" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="DarkGoldenrod" Padding="10">
+                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="Day3" Text="Day +3" TextColor="White" FontSize="11" HorizontalOptions="Center" TextTransform="Uppercase"/>
+                        <Label x:Name="Day3temp" Text="0 hpa" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="DarkGreen" Padding="10">
+                    <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="Day4" Text="Day +4" TextColor="White" FontSize="11" HorizontalOptions="Center" TextTransform="Uppercase"/>
+                        <Label x:Name="Day4temp" Text="0%" TextColor="White" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
